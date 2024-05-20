@@ -47,6 +47,7 @@ const Orders = () => {
 					order_status: status
 				}
 			});
+			console.log(res, 'RES');
 			getAllOrders();
 		} catch (err) {
 			console.log(err);
