@@ -38,20 +38,47 @@ const ListItem = ({
 			<ItemSummary order={order} selectedId={selectedId} key={order._id} />
 			<div>
 				<button
-					className='status-buttons pending-action'
+					className={
+						order.order_status === 'completed' ||
+						order.order_status === 'cancalled'
+							? 'status-buttons disabled'
+							: 'status-buttons pending-action'
+					}
 					onClick={() => updateOrderStatus(order._id, 'pending')}
+					disabled={
+						order.order_status === 'completed' ||
+						order.order_status === 'cancalled'
+					}
 				>
 					Pending
 				</button>
 				<button
-					className='status-buttons preparing-action'
+					className={
+						order.order_status === 'completed' ||
+						order.order_status === 'cancalled'
+							? 'status-buttons disabled'
+							: 'status-buttons preparing-action'
+					}
 					onClick={() => updateOrderStatus(order._id, 'preparing')}
+					disabled={
+						order.order_status === 'completed' ||
+						order.order_status === 'cancalled'
+					}
 				>
 					Preparing
 				</button>
 				<button
-					className='status-buttons completed-action'
+					className={
+						order.order_status === 'completed' ||
+						order.order_status === 'cancalled'
+							? 'status-buttons disabled'
+							: 'status-buttons completed-action'
+					}
 					onClick={() => updateOrderStatus(order._id, 'completed')}
+					disabled={
+						order.order_status === 'completed' ||
+						order.order_status === 'cancalled'
+					}
 				>
 					Completed
 				</button>
